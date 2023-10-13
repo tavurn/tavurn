@@ -2,12 +2,6 @@
 
 return [
 
-    'scheme' => 'http',
-
-    'host' => 'localhost',
-
-    'port' => 8080,
-
     'routing' => [
         'parser' => \FastRoute\RouteParser\Std::class,
 
