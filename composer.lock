@@ -1482,12 +1482,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Tavurn/framework.git",
-                "reference": "5d6ab01fffc12b5ca10a6d64a20cb25a89c80bf9"
+                "reference": "30824804a629fd574e3893bb8c9e90a11e6ed786"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Tavurn/framework/zipball/5d6ab01fffc12b5ca10a6d64a20cb25a89c80bf9",
-                "reference": "5d6ab01fffc12b5ca10a6d64a20cb25a89c80bf9",
+                "url": "https://api.github.com/repos/Tavurn/framework/zipball/30824804a629fd574e3893bb8c9e90a11e6ed786",
+                "reference": "30824804a629fd574e3893bb8c9e90a11e6ed786",
                 "shasum": ""
             },
             "require": {
@@ -1529,7 +1529,7 @@
                 "issues": "https://github.com/Tavurn/framework/issues",
                 "source": "https://github.com/Tavurn/framework/tree/main"
             },
-            "time": "2023-10-12T18:53:51+00:00"
+            "time": "2023-10-13T08:02:31+00:00"
         },
         {
             "name": "voku/portable-ascii",

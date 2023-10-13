@@ -12,14 +12,14 @@ Route::get('/', function () {
     return 'Hello!';
 });
 
-Route::get('/greet/', function (Request $request) {
+Route::get('/greet', function (Request $request) {
     $name = $request->query('name', 'Anonymous');
 
     return "Hello, {$name}!";
 });
 
-Route::get('/greet/{name}/', GreetingController::class);
+Route::get('/greet/{name}', GreetingController::class);
 
-Route::get('/exception/', function () {
+Route::get('/exception', function () {
     throw new RenderedException;
 });
