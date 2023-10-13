@@ -8,6 +8,5 @@ class Kernel extends HttpKernel
 {
     protected array $middleware = [
         \Tavurn\Foundation\Middleware\EnsureValidUri::class,
-        \App\Http\Middleware\UselessMiddleware::class,
     ];
 }
