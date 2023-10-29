@@ -4,6 +4,10 @@ require __DIR__ . '/vendor/autoload.php';
 
 $server = new \OpenSwoole\Http\Server('127.0.0.1', 8080);
 
+OpenSwoole\Coroutine::set([
+    'hook_flags' => OpenSwoole\Runtime::HOOK_ALL,
+]);
+
 $server->set([
     'worker_num' => 4,
 ]);
