@@ -1,0 +1,18 @@
+#!/usr/bin/env php
+<?php
+
+require __DIR__ . '/vendor/autoload.php';
+
+$app = new \Tavurn\Foundation\Application(__DIR__);
+
+$app->singleton(
+    \Tavurn\Contracts\Console\Kernel::class,
+    \App\Console\Kernel::class,
+);
+
+$status = $app->get(\Tavurn\Contracts\Console\Kernel::class)->run(
+    new \Symfony\Component\Console\Input\ArgvInput,
+    new \Symfony\Component\Console\Output\ConsoleOutput,
+);
+
+exit($status);
