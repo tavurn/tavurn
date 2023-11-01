@@ -35,7 +35,7 @@ return [
             'user' => 'root',
             'password' => null,
             'host' => 'localhost',
-        ]
-    ]
+        ],
+    ],
 
 ];

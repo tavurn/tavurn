@@ -67,7 +67,7 @@ class ServeCommand extends Command
     protected function configureServer(Server $server, InputInterface $with): void
     {
         $server->set([
-            'worker_num' => $with->getOption('workers'),
+            'worker_num' => (int) $with->getOption('workers'),
         ]);
     }
 
@@ -79,7 +79,6 @@ class ServeCommand extends Command
             ->addArgument('address', InputArgument::OPTIONAL, 'The address your application will be served on.')
             ->addOption('host', mode: InputOption::VALUE_OPTIONAL, default: '127.0.0.1')
             ->addOption('port', mode: InputOption::VALUE_OPTIONAL, default: 8080)
-            ->addOption('workers', 'wrk', InputOption::VALUE_OPTIONAL, default: Util::getCPUNum())
-        ;
+            ->addOption('workers', 'wrk', InputOption::VALUE_OPTIONAL, default: Util::getCPUNum());
     }
 }
