@@ -3,6 +3,7 @@
 namespace App\Console\Commands;
 
 use OpenSwoole\Server;
+use OpenSwoole\Util;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
@@ -30,6 +31,8 @@ class ServeCommand extends Command
         $server = $this->buildServer(
             $host, $port,
         );
+
+        $this->configureServer($server, $input);
 
         $status = $this->app->serve($server);
 
@@ -61,6 +64,13 @@ class ServeCommand extends Command
             : array_values($input->getOptions());
     }
 
+    protected function configureServer(Server $server, InputInterface $with): void
+    {
+        $server->set([
+            'worker_num' => $with->getOption('workers'),
+        ]);
+    }
+
     protected function configure()
     {
         $this
@@ -69,6 +79,7 @@ class ServeCommand extends Command
             ->addArgument('address', InputArgument::OPTIONAL, 'The address your application will be served on.')
             ->addOption('host', mode: InputOption::VALUE_OPTIONAL, default: '127.0.0.1')
             ->addOption('port', mode: InputOption::VALUE_OPTIONAL, default: 8080)
+            ->addOption('workers', 'wrk', InputOption::VALUE_OPTIONAL, default: Util::getCPUNum())
         ;
     }
 }
