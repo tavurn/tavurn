@@ -1,13 +1,11 @@
 <?php
 
-use Tavurn\Database\Repository;
-
 return [
 
     /**
      * The default repository class.
      */
-    'repository' => Repository::class,
+    'repository' => \Tavurn\Database\Repository::class,
 
     /**
      * The path to where your models are defined.
