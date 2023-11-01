@@ -38,12 +38,12 @@ class ServeCommand extends Command
 
     protected function bindImportantInterfaces(): void
     {
-        $this->app->singleton(
+        $this->app->singletonIfNotBound(
             \Tavurn\Contracts\Exceptions\Handler::class,
             \Tavurn\Exceptions\Handler::class,
         );
 
-        $this->app->singleton(
+        $this->app->singletonIfNotBound(
             \Tavurn\Contracts\Http\Kernel::class,
             \App\Http\Kernel::class,
         );
