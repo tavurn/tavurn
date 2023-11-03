@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use OpenSwoole\Process;
 use OpenSwoole\Server;
 use OpenSwoole\Util;
 use Symfony\Component\Console\Command\Command;
@@ -34,9 +35,18 @@ class ServeCommand extends Command
 
         $this->configureServer($server, $input);
 
-        $status = $this->app->serve($server);
+        $status = $this->runWithServer($server);
 
         return ! $status;
+    }
+
+    protected function runWithServer(Server $server): bool
+    {
+        $server->on('start',
+            fn (Server $server) => Process::signal(2, $server->shutdown(...)),
+        );
+
+        return $this->app->serve($server);
     }
 
     protected function bindImportantInterfaces(): void
