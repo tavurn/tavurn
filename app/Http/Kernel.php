@@ -8,5 +8,6 @@ class Kernel extends HttpKernel
 {
     protected array $middleware = [
         \Tavurn\Foundation\Middleware\EnsureValidUri::class,
+        \Tavurn\Foundation\Middleware\UpdateFormMethodMiddleware::class
     ];
 }
